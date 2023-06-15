@@ -10,8 +10,8 @@
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.361">
 
-  <meta name="author" content="John Doe">
-  <title>Habits</title>
+  <meta name="author" content="Melvin Zhang">
+  <title>Statistics with Python</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -406,36 +406,99 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Habits</h1>
+  <h1 class="title">Statistics with Python</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-John Doe 
+Melvin Zhang 
 </div>
 </div>
 </div>
 
 </section>
-<section id="getting-up" class="slide level2">
-<h2>Getting up</h2>
-<ul>
-<li>Turn off alarm</li>
-<li>Get out of bed</li>
-</ul>
-<p><span class="math inline">x = \sum y</span></p>
-</section>
-<section id="going-to-sleep" class="slide level2">
-<h2>Going to sleep</h2>
-<ul>
-<li>Get in bed</li>
-<li>Count sheep</li>
-</ul>
+<section id="monty-hall-problem" class="slide level2">
+<h2>Monty Hall problem</h2>
+<p>Behind one door is a car, others have goats. After you have chosen, the host opened a door with a goat.</p>
+<p>Should you switch or keep your original choice?</p>
+
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Monty_open_door.svg" class="r-stretch"></section>
+<section id="monty-hall-problem-1" class="slide level2">
+<h2>Monty Hall problem</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> random</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">def</span> play(switch):</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    doors <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    pair <span class="op">=</span> (random.choice(doors), random.choice(doors))</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    winning_door, chosen_door <span class="op">=</span> pair</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    opened_door <span class="op">=</span> random.choice([d <span class="cf">for</span> d <span class="kw">in</span> doors <span class="cf">if</span> d <span class="kw">not</span> <span class="kw">in</span> pair])</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    <span class="cf">if</span> switch:</span>
+<span id="cb1-9"><a href="#cb1-9"></a>        chosen_door <span class="op">=</span> <span class="bu">sum</span>(doors) <span class="op">-</span> chosen_door <span class="op">-</span> opened_door</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    <span class="cf">return</span> winning_door <span class="op">==</span> chosen_door</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a>rounds <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>wins <span class="op">=</span> {<span class="va">True</span>: <span class="fl">0.0</span>, <span class="va">False</span>: <span class="fl">0.0</span>}</span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(rounds):</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    <span class="cf">for</span> switch <span class="kw">in</span> (<span class="va">True</span>, <span class="va">False</span>):</span>
+<span id="cb1-16"><a href="#cb1-16"></a>        wins[switch] <span class="op">+=</span> <span class="dv">1</span><span class="op">/</span>rounds <span class="cf">if</span> play(switch) <span class="cf">else</span> <span class="fl">0.0</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="bu">print</span>(wins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Result:</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="dv">1</span><span class="op">+</span><span class="dv">2</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="dv">3</span><span class="op">+</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>7</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>{True: 0.6600000000000005, False: 0.34000000000000025}</code></pre>
+</div>
+</div>
+</section>
+<section id="birthday-paradox" class="slide level2">
+<h2>Birthday paradox</h2>
+<p>On average, how many people do you need to ask to find two with same birthday?</p>
+</section>
+<section id="birthday-paradox-1" class="slide level2">
+<h2>Birthday paradox</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">from</span> random <span class="im">import</span> choice</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="im">from</span> statistics <span class="im">import</span> mean</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>days <span class="op">=</span> <span class="bu">range</span>(<span class="dv">365</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="kw">def</span> same_birthday_size():</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    bdays <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb3-8"><a href="#cb3-8"></a>    <span class="cf">while</span> (chosen <span class="op">:=</span> choice(days)) <span class="kw">not</span> <span class="kw">in</span> bdays:</span>
+<span id="cb3-9"><a href="#cb3-9"></a>        bdays.add(chosen)</span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="cf">return</span> <span class="bu">len</span>(bdays) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a></span>
+<span id="cb3-12"><a href="#cb3-12"></a>sizes <span class="op">=</span> [same_birthday_size() <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>)]</span>
+<span id="cb3-13"><a href="#cb3-13"></a></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="bu">print</span>(mean(sizes))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Result:</p>
+<div class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>25.01</code></pre>
+</div>
+</div>
+</section>
+<section id="bessels-correction" class="slide level2">
+<h2>Bessel’s correction</h2>
+<p>Population variance <span class="math display">\sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)</span></p>
+<p>Sample variance <span class="math display">s^2 = \frac{1}{N-1} \sum_{i=1}^{N} (x_i - \bar{x})</span></p>
+</section>
+<section id="bessels-correction-1" class="slide level2">
+<h2>Bessel’s correction</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">from</span> statistics <span class="im">import</span> mean, variance, pvariance</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="im">from</span> random <span class="im">import</span> gauss</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a>pvars <span class="op">=</span> []</span>
+<span id="cb5-5"><a href="#cb5-5"></a>svars <span class="op">=</span> []</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    data <span class="op">=</span> [gauss(mu<span class="op">=</span><span class="fl">0.0</span>, sigma<span class="op">=</span><span class="fl">1.0</span>) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">20</span>)]</span>
+<span id="cb5-8"><a href="#cb5-8"></a>    pvars.append(pvariance(data))</span>
+<span id="cb5-9"><a href="#cb5-9"></a>    svars.append(variance(data))</span>
+<span id="cb5-10"><a href="#cb5-10"></a></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="bu">print</span>(mean(pvars), mean(svars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Result:</p>
+<div class="cell" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>0.9672324586276647 1.018139430134384</code></pre>
 </div>
 </div>
 <div class="footer footer-default">

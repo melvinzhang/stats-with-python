@@ -1,26 +1,64 @@
 ---
-title: "Habits"
-author: "John Doe"
+title: "Statistics with Python"
+author: "Melvin Zhang"
 execute:
   echo: true
 format: 
   revealjs:
     html-math-method: katex
+filters: 
+  - include-code-files
 ---
 
-## Getting up
+## Monty Hall problem
 
-- Turn off alarm
-- Get out of bed
+Behind one door is a car, others have goats. After you have chosen, the host opened a door with a goat.
 
-$x = \sum y$
+Should you switch or keep your original choice?
 
-## Going to sleep
+![](https://upload.wikimedia.org/wikipedia/commons/3/3f/Monty_open_door.svg)
 
-- Get in bed
-- Count sheep
+## Monty Hall problem
 
+```{.python include="monty.py"}
+```
+
+Result:
 ```{python}
-1+2
-3+4
+#| echo: false
+%run monty.py
+```
+
+## Birthday paradox
+
+On average, how many people do you need to ask to find two with same birthday?
+
+## Birthday paradox
+
+```{.python include="birthday.py"}
+```
+
+Result:
+```{python}
+#| echo: false
+%run birthday.py
+```
+## Bessel's correction
+
+Population variance
+$$\sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)$$
+
+Sample variance
+$$s^2 = \frac{1}{N-1} \sum_{i=1}^{N} (x_i - \bar{x})$$
+
+
+## Bessel's correction
+
+```{.python include="bessel.py"}
+```
+
+Result:
+```{python}
+#| echo: false
+%run bessel.py
 ```
