@@ -1,0 +1,26 @@
+---
+title: "Habits"
+author: "John Doe"
+execute:
+  echo: true
+format: 
+  revealjs:
+    html-math-method: katex
+---
+
+## Getting up
+
+- Turn off alarm
+- Get out of bed
+
+$x = \sum y$
+
+## Going to sleep
+
+- Get in bed
+- Count sheep
+
+```{python}
+1+2
+3+4
+```
