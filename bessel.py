@@ -8,4 +8,6 @@ for _ in range(1000):
     pvars.append(pvariance(data))
     svars.append(variance(data))
 
-print(mean(pvars), mean(svars))
+print("Actual variance =", 1.0)
+print("Mean pvariance  =", mean(pvars))
+print("Mean variance   =", mean(svars))
