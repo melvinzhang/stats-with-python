@@ -16,14 +16,14 @@ Behind one door is a car, others have goats. After you have chosen, the host ope
 
 Should you switch or keep your original choice?
 
-![](https://upload.wikimedia.org/wikipedia/commons/3/3f/Monty_open_door.svg)
+![source: wikipedia.org/wiki/Monty_Hall_problem](https://upload.wikimedia.org/wikipedia/commons/3/3f/Monty_open_door.svg)
 
 ## Monty Hall problem
 
 ```{.python include="monty.py"}
 ```
 
-Result:
+Result
 ```{python}
 #| echo: false
 %run monty.py
@@ -38,11 +38,82 @@ On average, how many people do you need to ask to find two with same birthday?
 ```{.python include="birthday.py"}
 ```
 
-Result:
+## Birthday paradox
+
 ```{python}
 #| echo: false
 %run birthday.py
 ```
+
+## The Small Schools Myth
+
+ENEM scores from high schools in Brazil.
+
+```{python}
+import pandas as pd
+df = pd.read_csv("./data/enem_scores.csv")
+df.sort_values(by="avg_score", ascending=False).head(10)
+```
+
+## The Small Schools Myth
+
+```{python}
+#| code-fold: true
+import numpy as np
+import seaborn as sns
+plot_data = (df
+.assign(top_school = df["avg_score"] >= np.quantile(df["avg_score"], .99))
+[["top_school", "number_of_students"]]
+.query(f"number_of_students<{np.quantile(df['number_of_students'], .98)}")) # remove outliers
+
+sns.boxplot(x="top_school", y="number_of_students", data=plot_data)
+plt.title("Number of Students of 1% Top Schools (Right)");
+```
+
+## The Most Dangerous Equation
+
+Coined by statistician Howard Wainer in 2009[^1].
+
+[^1]: https://www.americanscientist.org/article/the-most-dangerous-equation
+
+Smaller samples have larger variance in the sample mean.
+
+$$\sigma_{\bar{x}}^2 = \sigma^2 / n$$
+
+Use to determine variance of $\bar{x}$ in the Central Limit Theorem.
+
+## The Small Schools Myth
+
+```{python}
+#| code-fold: true
+q_99 = np.quantile(df["avg_score"], .99)
+q_01 = np.quantile(df["avg_score"], .01)
+groups = lambda d: np.select([d["avg_score"] > q_99, d["avg_score"] < q_01], ["Top", "Bottom"], "Middle")
+plot_data = df.sample(10000).assign(Group = groups)
+sns.scatterplot(y="avg_score", x="number_of_students", hue="Group", data=plot_data)
+plt.title("Mean ENEM Score by Number of Students in the School");
+```
+
+## Conclusion
+
+Using Python simulations help us gain insights into the problem.
+
+Other possible topics:
+
+* Friendship paradox
+* Simpson's paradox
+* Bessel's correction for sample variance
+* Simulating a loaded dice efficiently
+
+## Bessel's correction
+
+Population mean
+$$\mu = \frac{1}{N} \sum_{i=1}^{N} x_i$$
+
+Sample mean
+$$\bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i$$
+
+
 ## Bessel's correction
 
 Population variance
@@ -57,7 +128,7 @@ $$s^2 = \frac{1}{N-1} \sum_{i=1}^{N} (x_i - \bar{x})$$
 ```{.python include="bessel.py"}
 ```
 
-Result:
+Result
 ```{python}
 #| echo: false
 %run bessel.py
