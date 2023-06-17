@@ -1,6 +1,8 @@
 ---
 title: "Statistics with Python"
 author: "Melvin Zhang"
+institute: "Computational Thinkerers"
+subtitle: "PyCon SG 2023 Education Summit"
 execute:
   echo: true
 format: 
@@ -9,6 +11,21 @@ format:
 filters: 
   - include-code-files
 ---
+
+## DYK Python has a statistics module?
+
+```{python}
+from statistics import mean, mode, median, variance, linear_regression
+
+xs = [1, 2, 3, 4, 4]
+print("mean", mean(xs))
+print("mode", mode(xs))
+print("median", median(xs))
+print("variance", variance(xs))
+
+ys = [5, 3, 2, 1, 0]
+print(linear_regression(xs, ys))
+```
 
 ## Monty Hall problem
 
@@ -96,7 +113,7 @@ plt.title("Mean ENEM Score by Number of Students in the School");
 
 ## Conclusion
 
-Using Python simulations help us gain insights into the problem.
+Python simulations help us gain insights into the problem.
 
 Other possible topics:
 
@@ -104,6 +121,8 @@ Other possible topics:
 * Simpson's paradox
 * Bessel's correction for sample variance
 * Simulating a loaded dice efficiently
+
+## Extra
 
 ## Bessel's correction
 
