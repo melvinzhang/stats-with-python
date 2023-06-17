@@ -12,7 +12,7 @@ def play(switch):
 rounds = 1000
 wins = {True: 0.0, False: 0.0}
 for _ in range(rounds):
-    for switch in (True, False):
+    for switch in wins.keys():
         wins[switch] += 1/rounds if play(switch) else 0.0
 
 print(wins)
