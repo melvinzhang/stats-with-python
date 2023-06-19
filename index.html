@@ -475,7 +475,7 @@ LinearRegression(slope=-1.4411764705882355, intercept=6.23529411764706)</code></
 <p>Result</p>
 <div class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
-<pre><code>{True: 0.6490000000000005, False: 0.33700000000000024}</code></pre>
+<pre><code>{True: 0.6780000000000005, False: 0.33000000000000024}</code></pre>
 </div>
 </div>
 </section>
@@ -509,7 +509,7 @@ LinearRegression(slope=-1.4411764705882355, intercept=6.23529411764706)</code></
 <p><img data-src="index_files/figure-revealjs/cell-4-output-1.png" width="811" height="411"></p>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mean is 24.63841</code></pre>
+<pre><code>Mean is 24.71534</code></pre>
 </div>
 </div>
 </section>
@@ -520,7 +520,7 @@ LinearRegression(slope=-1.4411764705882355, intercept=6.23529411764706)</code></
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"./data/enem_scores.csv"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3"></a>df.sort_values(by<span class="op">=</span><span class="st">"avg_score"</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="46">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -671,16 +671,23 @@ LinearRegression(slope=-1.4411764705882355, intercept=6.23529411764706)</code></
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
 <p>Python simulations help us gain insights into the problem.</p>
-<p>Other possible topics:</p>
+<h3 id="additional-resources">Additional resources</h3>
 <ul>
-<li>Friendship paradox</li>
-<li>Simpson’s paradox</li>
-<li>Bessel’s correction for sample variance</li>
-<li>Simulating a loaded dice efficiently</li>
+<li>This document <a href="https://melvinzhang.github.io/stats-with-python/">melvinzhang.github.io/stats-with-python</a></li>
+<li><a href="https://discovery.cs.illinois.edu/">Data Science Discovery</a> by UIUC</li>
+<li><a href="https://www.udemy.com/course/python-for-statistical-analysis/">Python for Statistical Analysis</a> by Udemy</li>
+<li><a href="https://www.datacamp.com/courses/statistical-simulation-in-python">Statistical Simulation in Python</a> by DataCamp</li>
 </ul>
 </section>
-<section id="extra" class="slide level2">
-<h2>Extra</h2>
+<section id="extra-topics" class="slide level2">
+<h2>Extra topics</h2>
+<ul>
+<li>Central Limit Theorem</li>
+<li>Friendship paradox</li>
+<li>Simpson’s paradox</li>
+<li>Simulating a loaded dice efficiently</li>
+<li>Bessel’s correction for sample variance</li>
+</ul>
 </section>
 <section id="bessels-correction" class="slide level2">
 <h2>Bessel’s correction</h2>
@@ -711,8 +718,8 @@ LinearRegression(slope=-1.4411764705882355, intercept=6.23529411764706)</code></
 <div class="cell" data-execution_count="7">
 <div class="cell-output cell-output-stdout">
 <pre><code>Actual variance = 1.0
-Mean pvariance  = 0.9533181214797979
-Mean variance   = 1.0034927594524188</code></pre>
+Mean pvariance  = 0.9393337202389754
+Mean variance   = 0.9887723370936584</code></pre>
 </div>
 </div>
 <div class="footer footer-default">

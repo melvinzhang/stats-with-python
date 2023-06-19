@@ -115,14 +115,19 @@ plt.title("Mean ENEM Score by Number of Students in the School");
 
 Python simulations help us gain insights into the problem.
 
-Other possible topics:
+### Additional resources
+* This document [melvinzhang.github.io/stats-with-python](https://melvinzhang.github.io/stats-with-python/)
+* [Data Science Discovery](https://discovery.cs.illinois.edu/) by UIUC
+* [Python for Statistical Analysis](https://www.udemy.com/course/python-for-statistical-analysis/) by Udemy
+* [Statistical Simulation in Python](https://www.datacamp.com/courses/statistical-simulation-in-python) by DataCamp
 
+## Extra topics
+
+* Central Limit Theorem
 * Friendship paradox
 * Simpson's paradox
-* Bessel's correction for sample variance
 * Simulating a loaded dice efficiently
-
-## Extra
+* Bessel's correction for sample variance
 
 ## Bessel's correction
 
