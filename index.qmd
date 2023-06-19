@@ -113,7 +113,10 @@ plt.title("Mean ENEM Score by Number of Students in the School");
 
 ## Conclusion
 
-Python simulations help us gain insights into the problem.
+"Learning by doing, peer-to-peer teaching, and computer simulation are all part of the same equation." <br>
+-- Nicholas Negroponte, founder of MIT Media Lab and OLPC
+
+<br>
 
 ### Additional resources
 * This document [melvinzhang.github.io/stats-with-python](https://melvinzhang.github.io/stats-with-python/)
