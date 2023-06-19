@@ -475,7 +475,7 @@ LinearRegression(slope=-1.4411764705882355, intercept=6.23529411764706)</code></
 <p>Result</p>
 <div class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
-<pre><code>{True: 0.6780000000000005, False: 0.33000000000000024}</code></pre>
+<pre><code>{True: 0.6600000000000005, False: 0.35700000000000026}</code></pre>
 </div>
 </div>
 </section>
@@ -509,7 +509,7 @@ LinearRegression(slope=-1.4411764705882355, intercept=6.23529411764706)</code></
 <p><img data-src="index_files/figure-revealjs/cell-4-output-1.png" width="811" height="411"></p>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mean is 24.71534</code></pre>
+<pre><code>Mean is 24.61776</code></pre>
 </div>
 </div>
 </section>
@@ -520,7 +520,7 @@ LinearRegression(slope=-1.4411764705882355, intercept=6.23529411764706)</code></
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"./data/enem_scores.csv"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3"></a>df.sort_values(by<span class="op">=</span><span class="st">"avg_score"</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -670,7 +670,8 @@ LinearRegression(slope=-1.4411764705882355, intercept=6.23529411764706)</code></
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
-<p>Python simulations help us gain insights into the problem.</p>
+<p>“Learning by doing, peer-to-peer teaching, and computer simulation are all part of the same equation.” <br> – Nicholas Negroponte, founder of MIT Media Lab and OLPC</p>
+<p><br></p>
 <h3 id="additional-resources">Additional resources</h3>
 <ul>
 <li>This document <a href="https://melvinzhang.github.io/stats-with-python/">melvinzhang.github.io/stats-with-python</a></li>
@@ -718,8 +719,8 @@ LinearRegression(slope=-1.4411764705882355, intercept=6.23529411764706)</code></
 <div class="cell" data-execution_count="7">
 <div class="cell-output cell-output-stdout">
 <pre><code>Actual variance = 1.0
-Mean pvariance  = 0.9393337202389754
-Mean variance   = 0.9887723370936584</code></pre>
+Mean pvariance  = 0.971613077249861
+Mean variance   = 1.0227506076314326</code></pre>
 </div>
 </div>
 <div class="footer footer-default">
